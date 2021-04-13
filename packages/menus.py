@@ -9,6 +9,7 @@
 # Importaciones
 from packages.operaciones import *
 import webbrowser as web
+import time
 
 d = []
 gotData  = False
@@ -35,7 +36,12 @@ def mainMenu(gotData, d, c):	# Menú Main
 		goToWeb()					# Manda a página web
 	elif(opcion == 00):
 		print("\n\n			+- Adiós.")
+		time.sleep(2)
 		exit()
+	else:
+		print("\nIntroduce una opción de las mostradas.")
+		time.sleep(2)
+		mainMenu()
 
 def goToWeb(w):
 	if(w == 1):
@@ -49,11 +55,11 @@ def goToWeb(w):
 	elif(w == 5):
 		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/estadistica/covarianza')
 	elif(w == 6):
-		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/estadistica/teorema-de-chebyshev')
+		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/probabilidad/teorema-de-chebyshev')
 	elif(w == 7):
-		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/estadistica/teorema-de-bayes')
+		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/probabilidad/teorema-de-bayes')
 	elif(w == 8):
-		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/estadistica/esperanza-matematica')
+		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/probabilidad/esperanza-matematica')
 	elif(w == 99):
 		web.open('https://sites.google.com/cesunbc.edu.mx/pypres/home')
 
@@ -68,6 +74,10 @@ def askMain(w):
 	elif(op == 3):
 		print("\n\n			+- Adiós.")
 		exit()
+	else:
+		print("\nIntroduce una opción de las mostradas.")
+		time.sleep(2)
+		askMain(w)
 
 def getAnother(d, c, w):
 	op = int(input("\n¿Quieres hacer otra operación con estos mismos datos?\n\n[1] Sí.\n[2] No.\n\n>: "))
@@ -78,6 +88,10 @@ def getAnother(d, c, w):
 		gotData = False
 		op = 0
 		askMain(w)
+	else:
+		print("\nIntroduce una opción de las mostradas.")
+		time.sleep(2)
+		getAnother()
 
 def mediaMenu(gotData, d, c):
 	print("\n+----------------+")
